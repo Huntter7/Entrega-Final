@@ -18,12 +18,13 @@ from django.urls import path
 from Kepler.views import (index, PostList, PostDetail, PostCreate, 
                                 PostUpdate, PostDelete, SignUp, Login, 
                                 Logout, ProfileUpdate, MensajeCreate, MensajeDelte, MensajeList,
-                                ProfileDetail, ProfileList, ProfileCreate)
+                                ProfileDetail, ProfileList, ProfileCreate, about)
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('', index, name='index'),
+    path('about/', about, name='about'),
     path('admin/', admin.site.urls),
     path('posteo/list', PostList.as_view(), name='post-list'),
     path('posteo/<pk>/detail', PostDetail.as_view(), name='post-detail'),
