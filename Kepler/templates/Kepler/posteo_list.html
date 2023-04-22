@@ -1,0 +1,21 @@
+{% extends 'Kepler/base.html' %}
+{% block main %}
+<ul>
+    <h1 style="color:rgb(69, 109, 160)">Cuerpos Celestes del Universo</h1>
+
+    {% if not object_list %}
+        <h2>NO HAY POST</h2>
+    {% endif %}
+
+    {% for posteo in object_list %}
+    <li>
+        {{posteo}} 
+        <a href="{% url 'post-detail' posteo.id %}"> Detalle </a>
+        {% if user.is_authenticated and posteo.owner == user %}
+            <a href="{% url 'post-update' posteo.id %}"> Actualizar </a>
+            <a href="{% url 'post-delete' posteo.id %}"> Borrar </a>
+        {% endif%}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

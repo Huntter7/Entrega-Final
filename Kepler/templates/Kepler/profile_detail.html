@@ -1,0 +1,14 @@
+{% extends 'Kepler/base.html' %}
+{% block main %}
+<p>
+    <h1>{{object.nombre_completo}}</h1>
+    <h3>{{object.ciudad}}</h3>
+    <br>
+    <img src="{{object.imagen.url}}" width="480px" height="100%">
+    <p style="color:rgb(116, 43, 226)">Instagram {{object.instagram}}</p>
+    <p style="color:aqua">Twitter {{object.twitter}}</p>
+    <p>{{object.pequeña_introduccion}}</p>
+    <br>
+     <a href="{% url 'post-list'%}">volver</a>
+</p>
+{% endblock %}

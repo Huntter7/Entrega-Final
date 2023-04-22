@@ -1,0 +1,15 @@
+{% extends 'Kepler/base.html' %}
+{% block main %}
+<ul>
+    <h1 style="color:rgb(69, 109, 160)">Perfiles</h1>
+    {% for profile in object_list %}
+    <li>
+        {{profile}} 
+        <a href="{% url 'profile-detail' profile.id %}"> Detalle </a>
+        {% if user.is_authenticated and profile.user == user %}
+            <a href="{% url 'profile-update' profile.id %}"> Actualizar </a>
+        {% endif%}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

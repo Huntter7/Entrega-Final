@@ -1,0 +1,21 @@
+{% extends 'Kepler/base.html' %}
+{% block main %}
+<ul>
+    <h1 style="color:rgb(69, 109, 160)">Mesajes</h1>
+
+    {% if not mensajes %}
+        <h2>No Hay Mensajes</h2>
+    {% endif %}
+
+    {% for mensaje in mensajes %}
+    <li>
+        <p>{{me.email}}</p>
+        <br>
+        {{mensaje.mensaje}} 
+        {% if user.is_authenticated and mensaje.destinatario == user %} 
+            <a href="{% url 'mensaje-delete' mensaje.id %}"> Borrar </a>
+        {% endif%}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

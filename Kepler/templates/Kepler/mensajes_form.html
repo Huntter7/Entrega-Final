@@ -1,0 +1,9 @@
+{% extends 'Kepler/base.html' %}
+{% block main %}
+<h1 style="color:rgb(69, 109, 160)">Mensajes</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Guardar">
+</form>
+{% endblock %}
